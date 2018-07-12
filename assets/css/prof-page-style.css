@@ -1,0 +1,37 @@
+/* body {
+    background-image: url("../images/cliff.png"); 
+} */
+
+#cliff {
+    /* width:50%; */
+    /* padding:0 0 20% 0; */
+    /* background: url("../images/cliff.png") no-repeat top; */
+    /* background-size: 20% auto; */
+    /* float: right; */
+    /* height: 400px; */
+    background-position: 50% 210px;
+    background-size: 100%;
+}
+
+/* .parallax {
+    z-index: 1;
+    position: static;
+} */
+
+h4 {
+    margin: 0;
+}
+
+.collection {
+    margin: 0;
+}
+
+#map {
+    width: 600px;
+    height: 450px;
+}
+
+.container-fluid {
+    width: 90%;
+    margin: 0 auto;
+}
