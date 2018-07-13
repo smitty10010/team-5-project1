@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <style>
+        ul li { display:block; float:left; }
+        a.active { background:red; }
+        .radio-btns { margin: 5px; }
+    </style>
+</head>
+<body>
+    
+    <!-- Modal questions -->
+
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#mod-question1">Modal</a>
+
+    <!--modal 1 -->
+    <div id="mod-question1" class="modal">
+        <div class="modal-content">
+            <h4>Set up your profile!</h4>
+            <p>Please answer the questions below.</p>
+        </div>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s3">
+                        <input id="age" type="text" class="validate">
+                        <label for="age">Age</label>
+                    </div>
+                    <div class="input-field col s9">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                        <!-- <span class="helper-text" data-error="wrong" data-success="right">Helper text</span> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <a href="#mod-question2" class="btn blue modal-close modal-trigger">Next</a>
+        </div>
+    </div>
+
+    <!--modal 2 -->
+    <div id="mod-question2" class="modal">
+        <div class="modal-content">
+            <h4>Help us help you find your next climb!</h4>
+            <p>Please answer the questions below.</p>
+        </div>
+        <div>
+            <div class="radio-btns center">
+                <p>Where do you want to climb?</p>
+                <a class="waves-effect waves-light btn venue">Indoor</a>
+                <a class="waves-effect waves-light btn venue">Outdoor</a>
+            </div>
+            <div class="radio-btns center">
+                <p>What style do you want to climb?</p>
+                <a class="waves-effect waves-light btn style">Boulder</a>
+                <a class="waves-effect waves-light btn style">Top Rope</a>
+            </div>
+            <div class="radio-btns center">
+                <p>What is your past climbing experience?</p>
+                <a class="waves-effect waves-light btn exp">None</a>
+                <a class="waves-effect waves-light btn exp">Some</a>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close btn orange">Submit</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+        });
+        $(".venue").click(function() {
+            $(".venue").removeClass('active');
+            $(this).addClass('active');
+        });
+        $(".style").click(function() {
+            $(".style").removeClass('active');
+            $(this).addClass('active');
+        });
+        $(".exp").click(function() {
+            $(".exp").removeClass('active');
+            $(this).addClass('active');
+        });
+    </script>
+</body>
+</html>
