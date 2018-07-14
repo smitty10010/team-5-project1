@@ -32,7 +32,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbAoJV5LEjyh3amz-WA38jcFiNuhyJgJQ&callback=initMap&libraries=places" async defer>
     </script>
 
-
+  <!--moar fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Oswald" rel="stylesheet">
 
 </head>
 
@@ -43,16 +44,26 @@
     </div>
 
     <nav>
-        <div class="nav-wrapper orange darken-3">
-            <a href="" class="brand-logo left">Crawl <span style="font-size: 15px">a community.</span></a>
-        </div>
-    </nav>
+            <div class="nav-wrapper orange darken-3" id="profile-logo">
+                <a href="index.html" class="brand-logo left">Crawl&nbsp;<span style="font-size: 15px">a community.</span></a>
+                <ul class="right hide-on-small-only" id="chip">
+                    <li class="chip white black-text"><span id="userProfile"></span></li>
+                </ul>
+
+                <!-- <ul class="right hide-on-small-only" id="chip">
+                        <li class="chip white black-text">Jane, 34&nbsp;&nbsp;|&nbsp;&nbsp;Exploring outdoor bouldering</li>
+                </ul> -->
+
+            </div>
+        </nav>
+
+
 
     <div class="container-fluid">
 
         <div id="profile-window" class="row">
 
-            <div class="card col s5">
+            <div class="card col s4" id="info-card">
                 <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width">
                         <li class="tab"><a class="active" href="#test4">Routes</a></li>
@@ -67,17 +78,21 @@
                 </div>
             </div>
 
-            <div class="card col s7">
-                <div id="map" class="card-image green">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
+            <div class="card col s7" id="map-card">
+
+                <!-- insert map -->
+                <!-- using a responsive iframe -->
+                <div class="responsive-map-container" id="map">
+                        <!-- place the iframe code between here... -->
+                       
+                        <!-- ... and here -->
+                    </div>
+                    <!-- /insert map -->
+
+
+                    <!-- this is old -->
+                <!-- <div id="map" class="card-image green"> -->
+            </div><!-- end card -->
 
         </div>
 
@@ -86,7 +101,6 @@
     <div class="parallax-container">
         <div class="parallax"><img id="cliff" src="https://cdn-files.apstatic.com/climb/106730252_medium_1494135910.jpg"></div>
     </div>
-
 </body>
 
 </html>
