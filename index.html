@@ -15,17 +15,13 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
-
-
     <link rel="stylesheet" type="text/css" href="assets/css/splash.css">
 
     <!-- Google Map API Map initialize and places library link -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbAoJV5LEjyh3amz-WA38jcFiNuhyJgJQ&callback=initMap&libraries=places" async defer>
     </script>
 
-
     <title>Crawl</title>
-
 
 </head>
 
@@ -44,49 +40,111 @@
 
         <div class="hero-text">
             <h1 class="head">Crawl</h1>
-            <p class="mkt-blurb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quia eaque dicta maxime cum aliquid corrupti eos corporis? Expedita quas eius pariatur necessitatibus animi ullam!
-                <p>
-                    <p class="mkt-blurb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quia eaque dicta maxime cum aliquid corrupti eos corporis? Expedita quas eius pariatur necessitatibus animi ullam!
-                        <p>
-                            <br>
-                            <a class="waves-effect green white-text btn modal-trigger" href="#mod-question1">Get Started</a>
-                            <a class="waves-effect blue white-text btn">Sign-in</a>
+            <p class="mkt-blurb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quia eaque dicta maxime cum aliquid corrupti eos corporis? Expedita quas eius pariatur necessitatibus animi ullam!<p>
+            <p class="mkt-blurb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quia eaque dicta maxime cum aliquid corrupti eos corporis? Expedita quas eius pariatur necessitatibus animi ullam!<p>
+                <br>
+            <a class="waves-effect green white-text btn modal-trigger" href="#mod-question1">Get Started</a>
+            <!-- <a class="waves-effect blue white-text btn">Sign-in</a> -->
         </div>
-
-
-
-
-
 
         <!-- Modal questions -->
 
         <!--modal 1 -->
-        <div id="mod-question1" class="modal">
-            <div class="modal-content">
-                <h4>Modal Header</h4>
-                <p>A bunch of text</p>
+        <div id="mod-question1" class="modal modal-content">
+            <div class="row modal-one-features">
+                <div class="col s12">
+                    <h4>Set up your profile!</h4>
+                    <p>Please answer the questions below.</p>
+                </div>
             </div>
+            
+            <div class="row modal-one-features">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="first_name" type="text" class="validate" required="">
+                            <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate" required="">
+                            <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input id="age" type="number" min="14" class="validate" required="">
+                            <label for="age">Age</label>
+                        </div>
+                        <div class="input-field col s9">
+                            <input id="email" type="email" class="validate" required="">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
             <div class="modal-footer">
-                <a href="#!" class="modal-close btn orange">Agree</a>
+                <a href="#mod-question2" class="btn blue modal-close modal-trigger">Next</a>
             </div>
         </div>
 
-
+        <!--modal 2 -->
+        <div id="mod-question2" class="modal">
+            <div class="modal-content">
+                <h4>Help us help you find your next climb!</h4>
+                <p>Please answer the questions below.</p>
+            </div>
+            <div>
+                <div class="radio-btns center">
+                    <p>Where do you want to climb?</p>
+                    <a class="waves-effect waves-light btn venue">Indoor</a>
+                    <a class="waves-effect waves-light btn venue">Outdoor</a>
+                </div>
+                <div class="radio-btns center">
+                    <p>What style do you want to climb?</p>
+                    <a class="waves-effect waves-light btn style">Boulder</a>
+                    <a class="waves-effect waves-light btn style">Top Rope</a>
+                </div>
+                <div class="radio-btns center">
+                    <p>What is your past climbing experience?</p>
+                    <a class="waves-effect waves-light btn exp">None</a>
+                    <a class="waves-effect waves-light btn exp">Some</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close btn orange" id="submit">Submit</a>
+            </div>
+        </div>
 
     </div>
     <!-- end container-->
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.modal').modal({
-                dismissible: false
-            });
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="assets/javascript/modal.js" ></script>
+    <!-- <script>
+        $(document).ready(function(){
+           $('.modal').modal({
+            dismissible: false
+           });
         });
-    </script>
-
+        $(".venue").click(function() {
+            $(".venue").removeClass('active');
+            $(this).addClass('active');
+        });
+        $(".style").click(function() {
+            $(".style").removeClass('active');
+            $(this).addClass('active');
+        });
+        $(".exp").click(function() {
+            $(".exp").removeClass('active');
+            $(this).addClass('active');
+        });
+        $("#submit").click(function() {
+            location.href = "profile-page.html";
+        });
+    </script> -->
 
 </body>
 

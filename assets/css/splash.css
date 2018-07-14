@@ -40,6 +40,21 @@ body, html {
     position: relative;
   }
 
+ul li { 
+    display:block; float:left; 
+}
+  
+a.active { 
+    background: blueviolet; 
+}
+  
+.radio-btns { 
+    margin: 5px; 
+}
+  
+.modal-one-features { 
+    margin: 15px; 
+}
 
 /* animation starts here  -------------------------------------------*/ 
 
