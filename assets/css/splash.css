@@ -9,7 +9,7 @@ body, html {
   padding: 0 30px;
   text-align: left;
   position: fixed;
-  width:25%;
+  width:35%;
   min-height: 100vh;
   top: 0;
   left: 0;
@@ -60,6 +60,7 @@ a.active {
 
 ul {
     list-style-type: none;
+    margin-top:0px;
 }
 
 .cb-slideshow,
@@ -193,4 +194,7 @@ ul {
 }
 @media screen and (max-width: 600px) { 
     .cb-slideshow li div h3 { font-size: 80px }
+}
+@media screen and (max-width: 900px) { 
+    .hero-text {width:50%}
 }
