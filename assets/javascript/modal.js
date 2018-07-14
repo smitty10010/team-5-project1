@@ -50,7 +50,7 @@
             } else {
                 userProfile.style = $(".style.active").text();
                 userProfile.venue = $(".venue.active").text();
-                location.href = "profile-page.html";
+                location.href = "profile-page.html#profile-logo";
                 profileChipPopulate();
             }
         });
