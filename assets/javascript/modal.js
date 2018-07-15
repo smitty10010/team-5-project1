@@ -43,18 +43,18 @@
         });
     });
 // check if user made all selections, launch warning modal if not, launch profile page if yes
-    $(document).ready(function() {
-        $("#submit").click(function() {
-            if ($(".venue.active").length < 1 || $(".style.active").length < 1 || $(".exp.active").length < 1) {
-                $("#warning-modal2").modal("open");
-            } else {
-                userProfile.style = $(".style.active").text();
-                userProfile.venue = $(".venue.active").text();
-                storeProfileInfo();
-                location.href = "profile-page.html#profile-logo";
-            }
+        $(document).ready(function() {
+            $("#submit").click(function() {
+                if ($(".venue.active").length < 1 || $(".style.active").length < 1 || $(".exp.active").length < 1) {
+                    $("#warning-modal2").modal("open");
+                } else {
+                    userProfile.style = $(".style.active").text();
+                    userProfile.venue = $(".venue.active").text();
+                    storeProfileInfo();
+                    location.href = "profile-page.html#profile-logo";
+                }
+            });
         });
-    });
 // empty object to hold profile info
     var userProfile = {
         firstName: "",
