@@ -66,9 +66,11 @@ database.ref().once("value", function(snapshot) {
                 position: place,
                 title: name
             });
-        
+            
+            infowindow = new google.maps.InfoWindow();
+            
             google.maps.event.addListener(marker, 'click', function() {
-                infowindow.setContent(place.name);
+                infowindow.setContent(name);
                 infowindow.open(map, this);
             });
         }
@@ -102,8 +104,6 @@ database.ref().once("value", function(snapshot) {
           
           var queryURL = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=" + lat + "&lon=" + long + "&maxDistance=1&minDiff=" + minDiff + "&maxDiff=" + maxDiff + "&key=200310132-c610c4fb4a201873e534db2c38774eb7"
         
-        
-        console.log('queryURL: ' + queryURL);
         //  ajax call
         $.ajax({
             url: queryURL,
@@ -118,9 +118,10 @@ database.ref().once("value", function(snapshot) {
                 lng: response.routes[i].longitude
             }
             
-            console.log('ROUTES: ' , response.routes[i]);
             var routeName = response.routes[i].name;
             createOutdoorMarker(coordinates, routeName);
+            
+            
         }
     }); 
     // ajax end
