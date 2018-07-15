@@ -50,8 +50,8 @@
             } else {
                 userProfile.style = $(".style.active").text();
                 userProfile.venue = $(".venue.active").text();
+                storeProfileInfo();
                 location.href = "profile-page.html#profile-logo";
-                profileChipPopulate();
             }
         });
     });
@@ -62,18 +62,7 @@
         style: "", 
         venue: ""
     };
-// convert boulder/tope rope to gerund
-    function makeGerund() {
-        var styleVerb = userProfile.style;
-        if (styleVerb = "Boulder") {
-            return "Bouldering";
-        } else if (styleVerb = "Boulder") {
-            return "Top Roping";
-        }
-    }
-// set up profile info string for header chip on profile page
-    function profileChipPopulate () {
-        var activity = makeGerund();
-        var userProfString = userProfile.firstName + ", " + userProfile.age + " | " + "Exploring " + activity + " " + userProfile.venue + "s";
-        $("#userProfile").text(userProfString);
+// set profile information to browser session storage 
+    function storeProfileInfo() {
+        sessionStorage.setItem("user", JSON.stringify(userProfile));
     }
