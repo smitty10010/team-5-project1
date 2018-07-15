@@ -9,7 +9,7 @@ function initMap() {
         zoom: 10
     });
 
-
+}
 
 // Initialize Firebase
 var config = {
@@ -127,6 +127,31 @@ database.ref().once("value", function(snapshot) {
     }
 })
 
-$('.tabs').tabs();
-$('.parallax').parallax();
+// retrieve profile info from session storage
+function retrieveProfileInfo() {
+    return JSON.parse(sessionStorage.getItem("user"));
 }
+
+// convert boulder/tope rope to gerund
+function makeGerund() {
+    var styleVerb = userProfile.style;
+    if (styleVerb = "Boulder") {
+        return "Bouldering";
+    } else if (styleVerb = "Boulder") {
+        return "Top Roping";
+    }
+}
+
+// set up profile info string for header chip on profile page
+function profileChipPopulate () {
+    var profileStore = retrieveProfileInfo();
+    var activity = makeGerund();
+    var userProfString = profileStore.firstName + ", " + profileStore.age + " | " + "Exploring " + activity + " " + profileStore.venue + "s";
+    $("#userProfile").text(userProfString);
+}
+
+$(document).ready(function() {
+    $('.tabs').tabs();
+    $('.parallax').parallax();
+    profileChipPopulate();
+});
