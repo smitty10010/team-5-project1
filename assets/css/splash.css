@@ -56,6 +56,14 @@ a.active {
     margin: 15px; 
 }
 
+#mod-question2 .modal-content {
+    padding-bottom: 10px;
+}
+
+.radio-btn-box {
+    margin-bottom: 15px;
+}
+
 /* animation starts here  -------------------------------------------*/ 
 
 ul {
