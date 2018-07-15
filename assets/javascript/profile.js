@@ -119,8 +119,12 @@ database.ref().once("value", function(snapshot) {
             }
             
             var routeName = response.routes[i].name;
+            var routeGrade = response.routes[i].rating;
+            var routeArea = response.routes[i].location[2];
+            var routeCrag = response.routes[i].location[3];
+            var routeLink = response.routes[i].url;
             createOutdoorMarker(coordinates, routeName);
-            
+            buildRouteListItem(routeName,routeGrade,routeArea,routeCrag,routeLink);
             
         }
     }); 
@@ -151,8 +155,21 @@ function profileChipPopulate () {
     $("#userProfile").text(userProfString);
 }
 
+// build out collection of routes/gym/problems in card left of map
+function buildRouteListItem(name,grade,area,crag,src) {
+    $("#route-table").append($("<li>").addClass("collection-item avatar")
+    .append($("<i>").addClass("material-icons circle").text("landscape"))
+    .append($("<a>").addClass("route-name").text(name).attr("href",src).attr("targe","_blank"))
+    .append($("<p>").text("Grade: " + grade))
+    .append($("<p>").text("Area: " + area))
+    .append($("<p>").text("Crag: " + crag))
+    )
+};
+
+// initialization functions
 $(document).ready(function() {
     $('.tabs').tabs();
     $('.parallax').parallax();
+    $(".indicator").addClass("orange darken-1");
     profileChipPopulate();
 });
