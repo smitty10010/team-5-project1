@@ -1,5 +1,5 @@
 body, html {
-    height: 100%;
+    /* height: 100%; */
     margin: 0;
     padding: 0;
 }
@@ -9,11 +9,12 @@ body, html {
   padding: 0 30px;
   text-align: left;
   position: fixed;
-  width:35%;
+  width:30%;
   min-height: 100vh;
   top: 0;
   left: 0;
   color: white;
+  
 }
 
 .hero-text button:hover {
@@ -23,22 +24,13 @@ body, html {
 
 .head {
     font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
 }
 
 .mkt-blurb {
     font-family: 'Nanum Gothic', sans-serif;
     font-size:1.1rem;
 }
-
-.question-image {
-    background-image: url("../images/hero1.jpg");
-    opacity: 0.4;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
 
 ul li { 
     display:block; float:left; 
@@ -74,16 +66,16 @@ ul {
 .cb-slideshow,
 .cb-slideshow:after { 
     position: fixed;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     top: 0px;
     left: 0px;
     z-index: 0; 
 }
 
 .cb-slideshow li span { 
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -197,12 +189,30 @@ ul {
 	opacity: 1;
 }
 
+/* under 1140px */ 
 @media screen and (max-width: 1140px) { 
     .cb-slideshow li div h3 { font-size: 140px }
 }
-@media screen and (max-width: 600px) { 
-    .cb-slideshow li div h3 { font-size: 80px }
-}
+
+/* under 900px */ 
 @media screen and (max-width: 900px) { 
     .hero-text {width:50%}
 }
+
+/* under 600px */ 
+@media screen and (max-width: 600px) { 
+    .cb-slideshow li div h3 { font-size: 80px }
+}
+
+/* under 550px */ 
+@media screen and (max-width: 550px) { 
+    .head { font-size: 2.5rem }
+    .mkt-blurb { 
+        font-size: 0.8rem;
+        line-height: 1.1rem;
+    }
+    .hero-text {padding: 0 15px}
+
+}/* end MQ */
+
+
