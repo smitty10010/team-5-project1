@@ -60,7 +60,7 @@ database.ref().once("value", function(snapshot) {
     }
     if (snapshot.val().q1 === "outdoor") {
         function createOutdoorMarker(place, name) {
-    
+            
             var marker = new google.maps.Marker({
                 map: map,
                 position: place,
@@ -120,14 +120,34 @@ database.ref().once("value", function(snapshot) {
             
             var routeName = response.routes[i].name;
             createOutdoorMarker(coordinates, routeName);
-            
-            
-        }
-    }); 
-    // ajax end
-    }
-})
+        
+    // mountain project ajax end
+    // weather ajax begin
+    var APIKey ="c96fd8234f72e215a9e79fae44f17d3f";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+      "lat=" + coordinates.lat + "&lon=" + coordinates.lat + "&appid=" + APIKey;
 
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+      .then(function(weatherResponse) {
+        var tempFaren = (((weatherResponse.main.temp-273.15)*1.8)+32).toFixed();
+        var description =  weatherResponse.weather[0].description;
+        var wind = weatherResponse.wind.speed;
+        $('#temp').text("Temperature: " + tempFaren);
+        $('#description').text("Description: " + description);
+        $('#wind').text("Wind speed: " + wind + " mph");
+        
+
+
+      });
+    // weather ajax end
+    
+            };
+        });
+    };
+}); 
 // retrieve profile info from session storage
 function retrieveProfileInfo() {
     return JSON.parse(sessionStorage.getItem("user"));
