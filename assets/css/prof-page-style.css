@@ -58,3 +58,26 @@ h4 {
     width: 100%;
     height: 100%;
 }
+
+#info-card {
+    height: 450px;
+}
+
+#tab-content {
+    position: relative;
+    height: 85%
+}
+
+#routes {
+    position: absolute;
+    height: 90%;
+    overflow: hidden;
+    margin-right: 24px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#route-table {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
