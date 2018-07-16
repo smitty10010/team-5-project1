@@ -56,12 +56,15 @@ database.ref().once("value", function(snapshot) {
                google.maps.event.addListener(marker, 'click', function() {
                    infowindow.setContent(place.name);
                    infowindow.open(map, this);
+                   var lat = place.geometry.location.lat();
+                   var lng = place.geometry.location.lng();
+                   weatherAPICall(lat,lng);
                });
            }
     }
     if (snapshot.val().q1 === "outdoor") {
         function createOutdoorMarker(place, name) {
-    
+            
             var marker = new google.maps.Marker({
                 map: map,
                 position: place,
@@ -73,6 +76,7 @@ database.ref().once("value", function(snapshot) {
             google.maps.event.addListener(marker, 'click', function() {
                 infowindow.setContent(name);
                 infowindow.open(map, this);
+                weatherAPICall(place.lat,place.lng);
             });
         }
         if  (snapshot.val().q2 === "boulder" && snapshot.val().q3 === "some") {
@@ -103,7 +107,7 @@ database.ref().once("value", function(snapshot) {
             long = "-105.24";
           };
           
-          var queryURL = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=" + lat + "&lon=" + long + "&maxDistance=1&minDiff=" + minDiff + "&maxDiff=" + maxDiff + "&key=200310132-c610c4fb4a201873e534db2c38774eb7"
+        var queryURL = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=" + lat + "&lon=" + long + "&maxDistance=1&minDiff=" + minDiff + "&maxDiff=" + maxDiff + "&key=200310132-c610c4fb4a201873e534db2c38774eb7"
         
         //  ajax call
         $.ajax({
@@ -126,12 +130,36 @@ database.ref().once("value", function(snapshot) {
             var routeLink = response.routes[i].url;
             createOutdoorMarker(coordinates, routeName);
             buildRouteListItem(routeName,routeLink,routeGrade,routeArea,routeCrag);
-            
-        }
-    }); 
-    // ajax end
-    }
-})
+            }
+        });
+    // mountain project ajax end
+
+    };
+});
+
+// weather ajax
+function weatherAPICall(lat,lng) {
+
+    var APIKey ="c96fd8234f72e215a9e79fae44f17d3f";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+    "lat=" + lat + "&lon=" + lng + "&appid=" + APIKey;
+
+    $.ajax({
+    url: queryURL,
+    method: "GET"
+    })
+    .then(function(weatherResponse) {
+        var tempFaren = (((weatherResponse.main.temp-273.15)*1.8)+32).toFixed();
+        var description =  weatherResponse.weather[0].description;
+        var wind = weatherResponse.wind.speed;
+        $('#temp').text("Temperature: " + tempFaren);
+        $('#description').text("Description: " + description);
+        $('#wind').text("Wind speed: " + wind + " mph");
+
+    });
+    // weather ajax end
+
+};
 
 // retrieve profile info from session storage
 function retrieveProfileInfo() {
@@ -182,7 +210,6 @@ function getPlacesDetails(id) {
 
     var request = {
         placeId: id,
-        // fields: ["]
     }
 
     var service = new google.maps.places.PlacesService(map);
