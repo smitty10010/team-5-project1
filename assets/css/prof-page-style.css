@@ -5,16 +5,14 @@
 .container-fluid {
     width: 90%;
     margin: 0 auto;
-    padding-top: 15px;
 }
 
 .brand-logo {
-    margin-left: 60px;
     font-family: 'Oswald', sans-serif;
 }
 
 #chip {
-    margin-right: 60px;
+    margin-right: 80px;
     margin-top: 16px;
     font-family: 'Nanum Gothic', sans-serif;
 }
