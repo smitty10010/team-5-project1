@@ -61,6 +61,21 @@ database.ref().once("value", function(snapshot) {
                 weatherAPICall(lat, lng);
             });
         }
+
+        //meet up url 
+        var meetUpUrl = "https://api.meetup.com/find/groups?&sign=true&photo-host=public&zip=80201&text=climbing&page=20&key=665c5651aa6363315a7b2a30321e35";
+
+        $.ajax({
+            url: meetUpUrl,
+            dataType: 'jsonp',
+            crossDomain: true,
+            method: 'GET'
+        }).then(function(response) {
+            for (i = 0; i < response.data.length; i++) {
+                var groupDetails = response.data[i];
+                buildMeetUpGroups(groupDetails);
+            }
+        })
     }
     if (snapshot.val().q1 === "outdoor") {
         function createOutdoorMarker(place, name) {
@@ -230,6 +245,15 @@ function buildGymListItem(place) {
         .append($("<p>").text(place.formatted_address))
     );
     getPlacesDetails(place.place_id);
+}
+
+//build meetup events list
+function buildMeetUpGroups(groups) {
+    $('#meetups').append($("<li>").addClass("collection-item avatar")
+        .append($("<i>").addClass("material-icons circle").text("landscape"))
+        .append($("<a>").text(groups.name).attr("href", groups.link).attr("target", "_blank"))
+        .append($("<p>").text(groups.who))
+    );
 }
 
 // initialization functions
