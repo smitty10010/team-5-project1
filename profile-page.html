@@ -32,8 +32,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbAoJV5LEjyh3amz-WA38jcFiNuhyJgJQ&callback=initMap&libraries=places" async defer>
     </script>
 
-  <!--moar fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Oswald" rel="stylesheet">
+    <!--moar fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Oswald" rel="stylesheet">
 
 
 
@@ -41,67 +41,71 @@
 
 <body>
 
-<div class="parallax-container center valign-wrapper">
-    <div class="parallax">
-        <img id="cliff" src="https://cdn-files.apstatic.com/climb/106730252_medium_1494135910.jpg">
-    </div>
-</div>
-
-<!-- nav bar -->
-<nav class="orange darken-3">
-    <div class="nav-wrapper container" id="profile-logo">
-        <a href="index.html" class="brand-logo left">Crag&nbsp;&ndash;&nbsp;a community.</span></a>
-        <ul class="right hide-on-small-only" id="chip">
-            <li class="chip white black-text"><span id="userProfile"></span></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="container-fluid">
-
-    <div id="profile-window" class="row">
-
-        <!-- left side  -->
-        <div class="card col m7 s12" id="map-card">
-            <div class="responsive-map-container" id="map"> </div>
+    <div class="parallax-container center valign-wrapper">
+        <div class="parallax">
+            <img id="cliff" src="https://cdn-files.apstatic.com/climb/106730252_medium_1494135910.jpg">
         </div>
-        <!-- end side -->
+    </div>
 
-        <!-- right side content-->
-        <div class="card col m4 s12" id="info-card">
-            <div class="card-tabs orange">
-                <ul class="tabs tabs-fixed-width">
-                    <li class="tab"><a class="active black-text" href="#routes" id="routes-tab">Routes</a></li>
-                    <li class="tab"><a class="black-text" href="#meetups">Meetups</a></li>
-                    <li class="tab"><a class="black-text" href="#weather">Weather</a></li>
-                </ul>
+    <!-- nav bar -->
+    <nav class="orange darken-3">
+        <div class="nav-wrapper container" id="profile-logo">
+            <a href="index.html" class="brand-logo left">Crag&nbsp;&ndash;&nbsp;a community.</span></a>
+            <ul class="right hide-on-small-only" id="chip">
+                <li class="chip white black-text"><span id="userProfile"></span></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+
+        <div id="profile-window" class="row">
+
+            <!-- left side  -->
+            <div class="card col m7 s12" id="map-card">
+                <div class="responsive-map-container" id="map"> </div>
             </div>
-            <div class="card-content grey lighten-4" id="tab-content">
+            <!-- end side -->
+
+            <!-- right side content-->
+            <div class="card col m4 s12" id="info-card">
+                <div class="card-tabs orange">
+                    <ul class="tabs tabs-fixed-width">
+                        <li class="tab"><a class="active black-text" href="#routes" id="routes-tab">Routes</a></li>
+                        <li class="tab"><a class="black-text" href="#meetups">Meetups</a></li>
+                        <li class="tab"><a class="black-text" href="#weather">Weather</a></li>
+                    </ul>
+                </div>
+                <div class="card-content grey lighten-4" id="tab-content">
                     <div id="routes">
                         <ul class="collection" id="route-table"></ul>
                     </div>
-                    <div id="meetups"></div>
+                    <div id="meetups">
+                        <ul class="collection" id="meetups-table">
+
+                        </ul>
+                    </div>
                     <div id="weather" class="center-align">
-                        <div id = "temp">
+                        <div id="temp">
                             <a class="waves-effect waves-light btn" id="toast-btn" onclick="M.toast({html: 'Please selection a location on the map to display current weather!', displayLength: 2000})">Where are you?</a>
                         </div>
-                        <div id = "description"></div>
-                        <div id = "wind"></div>
+                        <div id="description"></div>
+                        <div id="wind"></div>
                     </div>
                 </div>
+            </div>
+            <!-- end side -->
+
         </div>
-        <!-- end side -->
+        <!-- end row -->
 
     </div>
-    <!-- end row -->
 
-</div>
-
-<div class="parallax-container center valign-wrapper">
-    <div class="parallax">
-        <img id="cliff" src="https://cdn-files.apstatic.com/climb/106730252_medium_1494135910.jpg">
+    <div class="parallax-container center valign-wrapper">
+        <div class="parallax">
+            <img id="cliff" src="https://cdn-files.apstatic.com/climb/106730252_medium_1494135910.jpg">
+        </div>
     </div>
-</div>
 
 </body>
 
