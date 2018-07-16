@@ -64,17 +64,19 @@
         <div id="profile-window" class="row">
 
             <div class="card col s4" id="info-card">
-                <div class="card-tabs">
+                <div class="card-tabs orange">
                     <ul class="tabs tabs-fixed-width">
-                        <li class="tab"><a class="active" href="#test4">Routes</a></li>
-                        <li class="tab"><a href="#test5">Meetups</a></li>
-                        <li class="tab"><a href="#test6">Glossary</a></li>
+                        <li class="tab"><a class="active black-text" href="#routes" id="routes-tab">Routes</a></li>
+                        <li class="tab"><a class="black-text"href="#meetups">Meetups</a></li>
+                        <li class="tab"><a class="black-text"href="#glossary">Glossary</a></li>
                     </ul>
                 </div>
-                <div class="card-content grey lighten-4">
-                    <div id="test4"></div>
-                    <div id="test5"></div>
-                    <div id="test6"></div>
+                <div class="card-content grey lighten-4" id="tab-content">
+                    <div id="routes">
+                        <ul class="collection" id="route-table"></ul>
+                    </div>
+                    <div id="meetups"></div>
+                    <div id="glossary"></div>
                 </div>
             </div>
 

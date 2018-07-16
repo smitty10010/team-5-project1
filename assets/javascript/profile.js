@@ -29,7 +29,7 @@ database.ref().once("value", function(snapshot) {
         
            var request = {
                location: denver,
-               query: 'mountain climbing gyms'
+               query: 'rock climbing gyms'
            };
 
            infowindow = new google.maps.InfoWindow();
@@ -41,6 +41,7 @@ database.ref().once("value", function(snapshot) {
                if (status === google.maps.places.PlacesServiceStatus.OK) {
                    for (var i = 0; i < results.length; i++) {
                        createMarker(results[i]);
+                       buildGymListItem(results[i]);
                    }
                }
            }
@@ -119,8 +120,12 @@ database.ref().once("value", function(snapshot) {
             }
             
             var routeName = response.routes[i].name;
+            var routeGrade = response.routes[i].rating;
+            var routeArea = response.routes[i].location[2];
+            var routeCrag = response.routes[i].location[3];
+            var routeLink = response.routes[i].url;
             createOutdoorMarker(coordinates, routeName);
-            
+            buildRouteListItem(routeName,routeLink,routeGrade,routeArea,routeCrag);
             
         }
     }); 
@@ -134,25 +139,77 @@ function retrieveProfileInfo() {
 }
 
 // convert boulder/tope rope to gerund
-function makeGerund() {
-    var styleVerb = userProfile.style;
-    if (styleVerb = "Boulder") {
+function makeGerund(styleVerb) {
+    if (styleVerb === "Boulder") {
         return "Bouldering";
-    } else if (styleVerb = "Boulder") {
-        return "Top Roping";
+    } else if (styleVerb === "Top Rope")
+        return "Top Rope Climbing";
+}
+
+// update HTML tab for bouldering and indoor, defaults to ROUTES 
+function tabLabelUpdateHTML() {
+    var profileStore = retrieveProfileInfo();
+    var userStyle = profileStore.style;
+    var userVenue = profileStore.venue;
+    if (userVenue === "Indoor") {
+        $("#routes-tab").text("GYMS");
+    } else if (userStyle === "Boulder") {
+        $("#routes-tab").text("PROBLEMS");
     }
 }
 
 // set up profile info string for header chip on profile page
 function profileChipPopulate () {
     var profileStore = retrieveProfileInfo();
-    var activity = makeGerund();
+    var activity = makeGerund(profileStore.style);
     var userProfString = profileStore.firstName + ", " + profileStore.age + " | " + "Exploring " + activity + " " + profileStore.venue + "s";
     $("#userProfile").text(userProfString);
 }
 
+// build out collection of outdoor routes/problems in card left of map
+function buildRouteListItem(name,src,grade,area,crag) {
+    $("#route-table").append($("<li>").addClass("collection-item avatar")
+    .append($("<i>").addClass("material-icons circle").text("landscape"))
+    .append($("<a>").addClass("route-name").text(name).attr("href",src).attr("target","_blank"))
+    .append($("<p>").text("Grade: " + grade))
+    .append($("<p>").text("Area: " + area))
+    .append($("<p>").text("Crag: " + crag))
+    );
+};
+
+// create Places Service to get gym website urls
+function getPlacesDetails(id) {
+
+    var request = {
+        placeId: id,
+        // fields: ["]
+    }
+
+    var service = new google.maps.places.PlacesService(map);
+    service.getDetails(request, callback);
+
+    function callback(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            $("#" + id).attr("href",place.website).attr("target","_blank");
+        }
+    }
+}
+
+// build out collection of indoor gyms in card left of map 
+function buildGymListItem(place) {
+    $("#route-table").append($("<li>").addClass("collection-item avatar")
+    .append($("<i>").addClass("material-icons circle").text("landscape"))
+    .append($("<a>").addClass("gym-name").text(place.name).attr("id",place.place_id))
+    .append($("<p>").text(place.formatted_address))
+    );
+    getPlacesDetails(place.place_id);
+}
+
+// initialization functions
 $(document).ready(function() {
     $('.tabs').tabs();
     $('.parallax').parallax();
+    $(".indicator").addClass("orange darken-1");
+    tabLabelUpdateHTML();
     profileChipPopulate();
 });
