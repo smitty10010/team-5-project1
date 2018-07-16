@@ -35,43 +35,48 @@
   <!--moar fonts -->
   <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Oswald" rel="stylesheet">
 
+
+
 </head>
 
 <body>
 
-    <div class="parallax-container">
-        <div class="parallax"><img id="cliff" src="https://cdn-files.apstatic.com/climb/106730252_medium_1494135910.jpg"></div>
+<div class="parallax-container center valign-wrapper">
+    <div class="parallax">
+        <img id="cliff" src="https://cdn-files.apstatic.com/climb/106730252_medium_1494135910.jpg">
     </div>
+</div>
 
-    <nav>
-            <div class="nav-wrapper orange darken-3" id="profile-logo">
-                <a href="index.html" class="brand-logo left">Crawl&nbsp;<span style="font-size: 15px">a community.</span></a>
-                <ul class="right hide-on-small-only" id="chip">
-                    <li class="chip white black-text"><span id="userProfile"></span></li>
+<!-- nav bar -->
+<nav class="orange darken-3">
+    <div class="nav-wrapper container" id="profile-logo">
+        <a href="index.html" class="brand-logo left">Crag&nbsp;&ndash;&nbsp;a community.</span></a>
+        <ul class="right hide-on-small-only" id="chip">
+            <li class="chip white black-text"><span id="userProfile"></span></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div id="profile-window" class="row">
+
+        <!-- left side  -->
+        <div class="card col m7 s12" id="map-card">
+            <div class="responsive-map-container" id="map"> </div>
+        </div>
+        <!-- end side -->
+
+        <!-- right side content-->
+        <div class="card col m4 s12" id="info-card">
+            <div class="card-tabs orange">
+                <ul class="tabs tabs-fixed-width">
+                    <li class="tab"><a class="active black-text" href="#routes" id="routes-tab">Routes</a></li>
+                    <li class="tab"><a class="black-text" href="#meetups">Meetups</a></li>
+                    <li class="tab"><a class="black-text" href="#weather">Weather</a></li>
                 </ul>
-
-                <!-- <ul class="right hide-on-small-only" id="chip">
-                        <li class="chip white black-text">Jane, 34&nbsp;&nbsp;|&nbsp;&nbsp;Exploring outdoor bouldering</li>
-                </ul> -->
-
             </div>
-        </nav>
-
-
-
-    <div class="container-fluid">
-
-        <div id="profile-window" class="row">
-
-            <div class="card col s4" id="info-card">
-                <div class="card-tabs orange">
-                    <ul class="tabs tabs-fixed-width">
-                        <li class="tab"><a class="active black-text" href="#routes" id="routes-tab">Routes</a></li>
-                        <li class="tab"><a class="black-text" href="#meetups">Meetups</a></li>
-                        <li class="tab"><a class="black-text" href="#weather">Weather</a></li>
-                    </ul>
-                </div>
-                <div class="card-content grey lighten-4" id="tab-content">
+            <div class="card-content grey lighten-4" id="tab-content">
                     <div id="routes">
                         <ul class="collection" id="route-table"></ul>
                     </div>
@@ -82,32 +87,19 @@
                         <div id = "wind"></div>
                     </div>
                 </div>
-            </div>
-
-            <div class="card col s7" id="map-card">
-
-                <!-- insert map -->
-                <!-- using a responsive iframe -->
-                <div class="responsive-map-container" id="map">
-                        <!-- place the iframe code between here... -->
-                       
-                        <!-- ... and here -->
-                    </div>
-                    <!-- /insert map -->
-
-
-                    <!-- this is old -->
-                <!-- <div id="map" class="card-image green"> -->
-            </div><!-- end card -->
-                
         </div>
-
+        <!-- end side -->
 
     </div>
+    <!-- end row -->
 
-    <div class="parallax-container">
-        <div class="parallax"><img id="cliff" src="https://cdn-files.apstatic.com/climb/106730252_medium_1494135910.jpg"></div>
+</div>
+
+<div class="parallax-container center valign-wrapper">
+    <div class="parallax">
+        <img id="cliff" src="https://cdn-files.apstatic.com/climb/106730252_medium_1494135910.jpg">
     </div>
+</div>
 
 </body>
 
