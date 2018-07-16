@@ -73,6 +73,14 @@
 }
 
 #meetups {
+    position: absolute;
+    height: 90%;
+    overflow: hidden;
+    margin-right: 24px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#meetups-table {
     position: relative;
     height: 100%;
     overflow: auto;
