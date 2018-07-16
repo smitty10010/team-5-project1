@@ -249,10 +249,10 @@ function buildGymListItem(place) {
 
 //build meetup events list
 function buildMeetUpGroups(groups) {
-    $('#meetups').append($("<li>").addClass("collection-item avatar")
+    $('#meetups-table').append($("<li>").addClass("collection-item avatar")
         .append($("<i>").addClass("material-icons circle").text("landscape"))
         .append($("<a>").text(groups.name).attr("href", groups.link).attr("target", "_blank"))
-        .append($("<p>").text(groups.who))
+        .append($("<p>").text("Active members: " + groups.members))
     );
 }
 
